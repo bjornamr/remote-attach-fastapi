@@ -1,0 +1,19 @@
+[tool.poetry]
+name = 'bjornamr.standard'
+version = "0.0.0"
+description = 'Standard Python Structure'
+authors = ["Bjoernar Moe Remmen <bjornarremm@gmail.com>"]
+license = "Copyright 2025 Tibber A/S"
+package-mode = false
+
+[tool.poetry.dependencies]
+python = "^3.11"
+polars = "1.24.0"
+fastapi = { version = "0.115.6", extras = ["standard"] }
+uvicorn = { version = "0.26.0", extras = ["standard"] }
+pydantic = ">=1.7.4, !=1.8, !=1.8.1, !=2.0.0, !=2.0.1, !=2.1.0, <3.0.0"
+
+
+[build-system]
+requires = ['poetry-core']
+build-backend = "poetry.core.masonry.api"

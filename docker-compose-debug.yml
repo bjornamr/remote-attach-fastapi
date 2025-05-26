@@ -1,0 +1,19 @@
+
+  services:
+    fastapi: 
+      build:
+        context: . 
+        dockerfile: Dockerfile 
+      expose:
+        - 8081
+        - 5678
+      ports:
+        - "8081:8081"    
+        - "5678:5678" # debugpy connection
+      environment:
+        PYTHONUNBUFFERED: 1 # Essential for real-time log output during debugging
+      volumes:
+        - ./code:/code 
+      # Override the default CMD to start debugpy
+      command: >
+        python -Xfrozen_modules=off -m debugpy --listen 0.0.0.0:5678 -m uvicorn main:app --host 0.0.0.0 --port 8081 

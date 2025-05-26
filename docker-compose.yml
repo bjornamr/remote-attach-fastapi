@@ -1,0 +1,14 @@
+
+  services:
+    fastapi: 
+      build:
+        context: . 
+        dockerfile: Dockerfile 
+      expose:
+        - 8081
+      ports:
+        - "8081:8081"    
+      environment:
+        PYTHONUNBUFFERED: 1 # Essential for real-time log output during debugging
+      volumes:
+        - ./code:/code 
